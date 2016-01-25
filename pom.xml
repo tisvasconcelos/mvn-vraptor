@@ -19,19 +19,19 @@
         <version>4.2.0-RC2</version>
     </dependency>
     <dependency>
-			<groupId>org.jboss.weld.servlet</groupId>
-			<artifactId>weld-servlet</artifactId>
-			<version>${weld.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.weld.servlet</groupId>
-			<artifactId>weld-servlet-core</artifactId>
-			<version>${weld.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jboss.weld</groupId>
-			<artifactId>weld-core-impl</artifactId>
-			<version>${weld.version}</version>
+		<groupId>org.jboss.weld.servlet</groupId>
+		<artifactId>weld-servlet</artifactId>
+		<version>${weld.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.jboss.weld.servlet</groupId>
+		<artifactId>weld-servlet-core</artifactId>
+		<version>${weld.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.jboss.weld</groupId>
+		<artifactId>weld-core-impl</artifactId>
+		<version>${weld.version}</version>
     </dependency>
     <dependency>
 		<groupId>org.hibernate</groupId>
@@ -55,6 +55,16 @@
         <version>7.0</version>
         <scope>provided</scope>
     </dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>5.0.7.Final</version>
+	</dependency>
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>5.1.32</version>
+	</dependency>
 	<!-- Logger -->
 	<dependency>
 		<groupId>org.slf4j</groupId>
