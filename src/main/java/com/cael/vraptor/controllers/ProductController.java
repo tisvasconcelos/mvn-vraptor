@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 import com.cael.vraptor.products.Product;
 import com.cael.vraptor.products.ProductDAO;
+import com.cael.vraptor.products.ProductStatus;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
@@ -28,6 +29,11 @@ public class ProductController {
 		productDAO.save(product);
 		
 		result.redirectTo(this).form();
+	}
+
+	@Get("/products")
+	public void list(){
+		result.include("products", productDAO.getByStatus(ProductStatus.OUT_OF_STOCK));
 	}
 	
 }
