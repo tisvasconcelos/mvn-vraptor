@@ -25,5 +25,5 @@ public class ProductDAO {
 		criteria.add(Restrictions.eq("status", status));
 		return criteria.list();
 	}
-	
+
 }

@@ -21,6 +21,14 @@
 			Descrição
 			<textarea name="product.description"></textarea>
 		</label>
+		<label>
+			Status
+			<select name="product.status">
+				<c:forEach items="${status}" var="s">
+					<option value="${s}">${s}</option>
+				</c:forEach>
+			</select>
+		</label>		
 		<input type="submit" value="Salvar">
 	</form>
 

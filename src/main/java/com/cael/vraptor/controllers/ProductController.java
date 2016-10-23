@@ -8,10 +8,12 @@ import com.cael.vraptor.products.ProductStatus;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 
 @Controller
+@Path("/product/")
 public class ProductController {
 
 	@Inject
@@ -20,18 +22,19 @@ public class ProductController {
 	@Inject
 	private ProductDAO productDAO;
 	
-	@Get("/product/create")
+	@Get("create")
 	public void form(){
+		result.include("status", ProductStatus.values());
 	}
 	
-	@Post("/product/save")
+	@Post("save")
 	public void save(Product product){
 		productDAO.save(product);
 		
 		result.redirectTo(this).form();
 	}
 
-	@Get("/products")
+	@Get("list")
 	public void list(){
 		result.include("products", productDAO.getByStatus(ProductStatus.OUT_OF_STOCK));
 	}
