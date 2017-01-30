@@ -18,25 +18,28 @@ public class ProductController {
 
 	@Inject
 	private Result result;
-	
+
 	@Inject
 	private ProductDAO productDAO;
-	
+
 	@Get("create")
-	public void form(){
+	public void form() {
 		result.include("status", ProductStatus.values());
 	}
-	
+
 	@Post("save")
-	public void save(Product product){
-		productDAO.save(product);
-		
+	public void save(Product product) {
+		 HystrixTestCommand hystrixTest = new HystrixTestCommand(product, productDAO);
+		 hystrixTest.execute();
+
+//		productDAO.save(product);
+
 		result.redirectTo(this).form();
 	}
 
 	@Get("list")
-	public void list(){
+	public void list() {
 		result.include("products", productDAO.getByStatus(ProductStatus.OUT_OF_STOCK));
 	}
-	
+
 }
